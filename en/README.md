@@ -12,4 +12,4 @@ If you find my work usefull, consider giving a star to the project. Thank you, a
 
 |Name|OS|Difficulty|
 |-|-|-|
-|IClean 🧹|Linux 🐧|Medium 🟠|
+|[IClean](IClean) 🧹|Linux 🐧|Medium 🟠|

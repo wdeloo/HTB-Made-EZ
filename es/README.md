@@ -12,4 +12,4 @@ Si mi trabajo te parece útil, considera dejar una estrella al proyecto. Gracias
 
 |Nombre|SO|Dificultad|
 |-|-|-|
-|IClean 🧹|Linux 🐧|Media 🟠|
+|[IClean](IClean) 🧹|Linux 🐧|Media 🟠|
