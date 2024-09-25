@@ -490,4 +490,4 @@ cat root.txt
 
 After finishing the machine, don’t forget to remove the line from `/etc/hosts` corresponding to the machine to avoid accumulating lines with each machine you do.
 
-If you found this useful, consider giving a star to the project. Thank you, and good luck with your future machines ♡.
+If you found this useful, consider giving a star to the project. Thank you, and good luck with your future machines ❤️.
