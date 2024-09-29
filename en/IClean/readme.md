@@ -268,7 +268,7 @@ We see that we are in the `/opt/app` directory, where we find a file `app.py`. W
 ```
 cat app.py
 
-...contenido del archivo...
+...file content...
 # Database Configuration
 db_config = {
     'host': '127.0.0.1',
@@ -276,7 +276,7 @@ db_config = {
     'password': 'pxCsmnGLckUb',
     'database': 'capiclean'
 }
-...contenido del archivo...
+...file content...
 ```
 
 Let's connect to the database with these credentials.
