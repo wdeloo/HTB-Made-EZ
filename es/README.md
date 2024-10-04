@@ -12,4 +12,5 @@ Si mi trabajo te parece útil, considera dejar una estrella al proyecto. Gracias
 
 |Nombre|SO|Dificultad|
 |-|-|-|
+|[TwoMillion](TwoMillion) 🧹|Linux 🐧|Fácil 🟢|
 |[IClean](IClean) 🧹|Linux 🐧|Media 🟠|
