@@ -1,3 +1,7 @@
+# Tutorial de TwoMillion de HackTheBox en Español
+
+![card](../../img/TwoMillion/TwoMillion.png)
+
 Como siempre, empezamos la máquina haciendo un escaneo de todos puertos de TCP.
 
 ```
