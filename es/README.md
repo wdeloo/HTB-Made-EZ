@@ -14,3 +14,4 @@ Si mi trabajo te parece útil, considera dejar una estrella al proyecto. Gracias
 |-|-|-|
 |[TwoMillion](TwoMillion) 🧹|Linux 🐧|Fácil 🟢|
 |[IClean](IClean) 🧹|Linux 🐧|Media 🟠|
+|[Blurry](Blurry) 🤖|Linux 🐧|Media 🟠|
