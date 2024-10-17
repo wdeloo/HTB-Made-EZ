@@ -236,7 +236,7 @@ Abajo a la derecha veremos el siguiente texto.
 WebApp: 1.13.1-426 • Server: 1.13.1-426 • API: 2.27
 ```
 
-Buscando en internet vilnerabilidades de esta versión de `ClearML` nos encontramos con este [CVE](https://www.cve.org/CVERecord?id=CVE-2024-24590).
+Buscando en internet vilnerabilidades de esta versión de `ClearML` nos encontramos con este [CVE-2024-24590](https://www.cve.org/CVERecord?id=CVE-2024-24590).
 
 ---
 
