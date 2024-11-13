@@ -15,5 +15,6 @@ Si mi trabajo te parece útil, considera dejar una estrella al proyecto. Gracias
 |[TwoMillion](TwoMillion) 📦|Linux 🐧|Fácil 🟢|
 |[Cap](Cap) 🏴‍☠|Linux 🐧|Fácil 🟢|
 |[Editorial](Editorial) 📚|Linux 🐧|Fácil 🟢|
+|[PermX](PermX) 🔒|Linux 🐧|Fácil 🟢|
 |[IClean](IClean) 🧹|Linux 🐧|Media 🟠|
 |[Blurry](Blurry) 🤖|Linux 🐧|Media 🟠|
