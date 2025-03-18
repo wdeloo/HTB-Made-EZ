@@ -16,5 +16,7 @@ Si mi trabajo te parece útil, considera dejar una estrella al proyecto. Gracias
 |[Cap](Cap) 🏴‍☠|Linux 🐧|Fácil 🟢|
 |[Editorial](Editorial) 📚|Linux 🐧|Fácil 🟢|
 |[PermX](PermX) 🔒|Linux 🐧|Fácil 🟢|
+|[Chemistry](Chemistry) 🧪|Linux 🐧|Fácil 🟢|
 |[IClean](IClean) 🧹|Linux 🐧|Media 🟠|
 |[Blurry](Blurry) 🤖|Linux 🐧|Media 🟠|
+|[Instant](Instant) 🪙|Linux 🐧|Media 🟠|
