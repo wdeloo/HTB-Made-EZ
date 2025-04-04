@@ -15,7 +15,7 @@ export default function Nav() {
         <nav className="flex justify-center py-3">
             <ul className="w-5xl max-w-full flex flex-row justify-between items-center">
                 <li className="h-full">
-                    <a href={import.meta.env.BASE_URL} className="flex px-2 flex-row gap-2 items-center h-full">
+                    <a href={import.meta.env.BASE_URL} className="flex flex-row gap-2 items-center h-full">
                         <img src="https://www.google.com/s2/favicons?sz=64&domain=hackthebox.com" />
                         <span className="text-lg font-bold">HTB Made EZ</span>
                     </a>
@@ -23,9 +23,9 @@ export default function Nav() {
                 <li>
                     <ul>
                         <li className="flex flex-row items-center">
-                            {SOCIAL_NETWORKS.map(socialNetwork => {
+                            {SOCIAL_NETWORKS.map((socialNetwork, i) => {
                                 return (
-                                    <a className="h-10 w-10 flex items-center justify-center" href={socialNetwork.url} title={socialNetwork.name}>
+                                    <a key={i} className="h-10 w-10 flex items-center justify-center" href={socialNetwork.url} title={socialNetwork.name}>
                                         <img height={socialNetwork.size} width={socialNetwork.size} src={socialNetwork.icon} />
                                     </a>
                                 )
