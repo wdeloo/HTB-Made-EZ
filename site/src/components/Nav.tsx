@@ -17,7 +17,7 @@ export default function Nav() {
                 <li className="h-full">
                     <a href={import.meta.env.BASE_URL} className="flex flex-row gap-2 items-center h-full">
                         <img src="https://www.google.com/s2/favicons?sz=64&domain=hackthebox.com" />
-                        <span className="text-lg font-bold">HTB Made EZ</span>
+                        <h1 className="text-xl font-bold terminalText">HTB Made EZ</h1>
                     </a>
                 </li>
                 <li>
