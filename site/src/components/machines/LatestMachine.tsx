@@ -27,7 +27,7 @@ export default function LatestMachine() {
 
     return (
         <article>
-            <a href={`${import.meta.env.BASE_URL}/${machine?.name}`} onMouseEnter={e => textGlitch(e.currentTarget)} className="flex flex-row gap-8 items-stretch terminalText hover:bg-neutral-800">
+            <a href={`${import.meta.env.BASE_URL}/${machine?.name ?? ""}`} onMouseEnter={e => textGlitch(e.currentTarget)} className="flex flex-row gap-8 items-stretch terminalText hover:bg-neutral-800">
                 <img width={300} src={`${RAW_REPO}/img/${machine?.name}/${machine?.name}.png`} />
                 <div className="flex flex-col py-3">
                     <header>
