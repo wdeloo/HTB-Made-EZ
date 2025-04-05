@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { machine } from "./Machines"
+import { machine, textGlitch } from "./Machines"
 import capitalize from "capitalize"
 
 interface props {
@@ -50,25 +50,24 @@ export default function LatestMachine({ latestMachine, rawRepo }: props) {
             const dataRes = await fetch(`${rawRepo}/data/${latestMachine}/data.json`)
             const data = await dataRes.json()
 
-            console.log(data.release)
             setMachine({ difficulty: data.difficulty ?? "", name: latestMachine, emoji: data.emoji ?? "", os: data.os ?? "", release: new Date(data.release ?? "") })
         })()
     }, [])
 
     return (
         <article>
-            <a className="flex flex-row gap-8 items-stretch">
+            <a href={`${import.meta.env.BASE_URL}/${machine?.name}`} onMouseEnter={e => textGlitch(e.currentTarget)} className="flex flex-row gap-8 items-stretch terminalText hover:bg-neutral-800">
                 <img width={300} src={`${rawRepo}/img/${latestMachine}/${latestMachine}.png`} />
                 <div className="flex flex-col py-3">
                     <header>
-                        <h1 className="text-4xl"><i><b>Latest Retired Machine</b></i></h1>
+                        <h1 className="text-5xl"><b>Latest Retired Machine</b></h1>
                     </header>
                     <main className="flex flex-col justify-between flex-grow">
                         <div className="py-4">
-                            <h2 className="text-2xl font-bold">{machine?.emoji} {machine?.name}</h2>
-                            <ul className="my-3 flex flex-row gap-4 text-lg font-bold">
-                                <li>{getDifficultyEmoji(machine?.difficulty ?? "")} {capitalize(machine?.difficulty ?? "")}</li>
-                                <li>{getOsEmoji(machine?.os ?? "")} {capitalize(machine?.os ?? "")}</li>
+                            <h2 className="text-3xl font-bold"><span data-noglitch="1">{machine?.emoji}</span> {machine?.name}</h2>
+                            <ul className="my-3 flex flex-row gap-4 text-xl font-bold">
+                                <li><span data-noglitch="1">{getDifficultyEmoji(machine?.difficulty ?? "")}</span> {capitalize(machine?.difficulty ?? "")}</li>
+                                <li><span data-noglitch="1">{getOsEmoji(machine?.os ?? "")}</span> {capitalize(machine?.os ?? "")}</li>
                             </ul>
                         </div>
                         <time className="text-xl font-bold opacity-60" dateTime={machine ? `${machine.release.getFullYear()}-${machine.release.getMonth()}-${machine.release.getDate()}` : undefined}>{machine?.release.getDate()} {getMonthName(machine?.release.getMonth() ?? 12)} {machine?.release.getFullYear()}</time>

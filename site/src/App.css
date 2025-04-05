@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import "tailwindcss";
 
 body {
@@ -7,4 +8,10 @@ body {
 
 nav {
   background-color: rgb(43, 43, 43);
+}
+
+.terminalText {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
 }

@@ -15,6 +15,7 @@
     "capitalize": "^2.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sleep-await": "^1.0.2",
     "tailwindcss": "^4.1.1"
   },
   "devDependencies": {
