@@ -1,53 +1,24 @@
 import { useEffect, useState } from "react"
-import { machine, textGlitch } from "./Machines"
+import { getDifficultyEmoji, getMonthName, getOsEmoji, machine, RAW_REPO, textGlitch, data } from "./Machines"
 import capitalize from "capitalize"
 
-interface props {
-    latestMachine: string
-    rawRepo: string
-}
-
-function getDifficultyEmoji(difficulty: string) {
-    switch (difficulty) {
-        case "easy":
-            return "🟢"
-        case "medium":
-            return "🟡"
-        case "hard":
-            return "🔴"
-        case "insane":
-            return "⚫️"
-        default:
-            return ""
-    }
-}
-
-function getOsEmoji(os: string) {
-    switch (os) {
-        case "linux":
-            return "🐧"
-        case "windows":
-            return "🪟"
-        case "freebsd":
-            return "👿"
-        case "openbsd":
-            return "🐡"
-        default:
-            return ""
-    }
-}
-
-function getMonthName(month: number) {
-    const monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "" ]
-    return monthNames[month]
-}
-
-export default function LatestMachine({ latestMachine, rawRepo }: props) {
+export default function LatestMachine() {
     const [machine, setMachine] = useState<machine | null>(null)
 
     useEffect(() => {
         (async () => {
-            const dataRes = await fetch(`${rawRepo}/data/${latestMachine}/data.json`)
+            async function getLatestMachine() {
+                const dataRes = await fetch(`${RAW_REPO}/data/data.json`)
+                const data: data = await dataRes.json()
+
+                const latestMachine = data.latest
+
+                return latestMachine ?? ""
+            }
+
+            const latestMachine = await getLatestMachine()
+
+            const dataRes = await fetch(`${RAW_REPO}/data/${latestMachine}/data.json`)
             const data = await dataRes.json()
 
             setMachine({ difficulty: data.difficulty ?? "", name: latestMachine, emoji: data.emoji ?? "", os: data.os ?? "", release: new Date(data.release ?? "") })
@@ -57,7 +28,7 @@ export default function LatestMachine({ latestMachine, rawRepo }: props) {
     return (
         <article>
             <a href={`${import.meta.env.BASE_URL}/${machine?.name}`} onMouseEnter={e => textGlitch(e.currentTarget)} className="flex flex-row gap-8 items-stretch terminalText hover:bg-neutral-800">
-                <img width={300} src={`${rawRepo}/img/${latestMachine}/${latestMachine}.png`} />
+                <img width={300} src={`${RAW_REPO}/img/${machine?.name}/${machine?.name}.png`} />
                 <div className="flex flex-col py-3">
                     <header>
                         <h1 className="text-5xl"><b>Latest Retired Machine</b></h1>

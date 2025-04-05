@@ -1,13 +1,9 @@
 import { sleepAwait } from "sleep-await";
 import LatestMachine from "./LatestMachine";
+import PinnedMachines from "./PinnedMachines";
 
 // const repo = "https://api.github.com/repos/wdeloo/HTB-Made-EZ"
-const rawRepo = "https://raw.githubusercontent.com/wdeloo/HTB-Made-EZ/main"
-const latestMachine = "Alert"
-
-export interface jsonFile {
-    content: string
-}
+export const RAW_REPO = "https://raw.githubusercontent.com/wdeloo/HTB-Made-EZ/main"
 
 export interface machine {
     difficulty: string
@@ -15,6 +11,11 @@ export interface machine {
     emoji: string
     os: string
     release: Date
+}
+
+export interface data {
+    pinned: string[]
+    latest: string
 }
 
 // glitch effect start
@@ -78,13 +79,46 @@ export function textGlitch(element: HTMLElement) {
 
 // glitch effect end
 
+export function getDifficultyEmoji(difficulty: string) {
+    switch (difficulty) {
+        case "easy":
+            return "🟢"
+        case "medium":
+            return "🟡"
+        case "hard":
+            return "🔴"
+        case "insane":
+            return "⚫️"
+        default:
+            return ""
+    }
+}
+
+export function getOsEmoji(os: string) {
+    switch (os) {
+        case "linux":
+            return "🐧"
+        case "windows":
+            return "🪟"
+        case "freebsd":
+            return "👿"
+        case "openbsd":
+            return "🐡"
+        default:
+            return ""
+    }
+}
+
+export function getMonthName(month: number) {
+    const monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "" ]
+    return monthNames[month]
+}
+
 export default function Machines() {
     return (
-        <>
-            <div className="w-5xl max-w-full m-auto">
-                <LatestMachine latestMachine={latestMachine} rawRepo={rawRepo} />
-                {/* <RecentMachines /> */}
-            </div>
-        </>
+        <div className="w-5xl max-w-full m-auto flex flex-col gap-4">
+            <LatestMachine />
+            <PinnedMachines />
+        </div>
     )
 }

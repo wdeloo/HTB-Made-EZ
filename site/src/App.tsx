@@ -10,6 +10,7 @@ function App() {
       </header>
 
       <main>
+        {/* <Search /> */}
         <Machines />
       </main>
 
