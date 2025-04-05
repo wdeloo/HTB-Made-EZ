@@ -116,7 +116,7 @@ export function getMonthName(month: number) {
 
 export default function Machines() {
     return (
-        <div className="w-5xl max-w-full m-auto flex flex-col gap-4">
+        <div className="w-5xl max-w-full px-3 m-auto flex flex-col gap-4">
             <LatestMachine />
             <PinnedMachines />
         </div>
