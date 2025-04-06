@@ -1,25 +1,21 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Machines from './components/machines/Machines'
+import Home from './app/home'
+import Search from './app/search'
 import Nav from './components/Nav'
-import SearchBar from './components/search/SearchBar'
 
 function App() {
-  return (
-    <>
-      <header className='sticky top-0 z-[1000]'>
-        <Nav />
-      </header>
-
-      <main className='flex flex-col gap-16 py-4'>
-        <SearchBar />
-        <Machines />
-      </main>
-
-      <footer>
-
-      </footer>
-    </>
-  )
+    return (
+        <>
+            <header className="sticky top-0 z-[999]">
+                <Nav />
+            </header>
+            <Routes>
+                <Route path={`${import.meta.env.BASE_URL}/`} element={<Home />} />
+                <Route path={`${import.meta.env.BASE_URL}/search`} element={<Search />} />
+            </Routes>
+        </>
+    )
 }
 
 export default App

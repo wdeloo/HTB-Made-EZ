@@ -2,7 +2,7 @@ import { sleepAwait } from "sleep-await";
 import LatestMachine from "./LatestMachine";
 import PinnedMachines from "./PinnedMachines";
 
-// const repo = "https://api.github.com/repos/wdeloo/HTB-Made-EZ"
+export const REPO = "https://api.github.com/repos/wdeloo/HTB-Made-EZ/contents"
 export const RAW_REPO = "https://raw.githubusercontent.com/wdeloo/HTB-Made-EZ/main"
 
 export interface machine {
@@ -112,6 +112,27 @@ export function getOsEmoji(os: string) {
 export function getMonthName(month: number) {
     const monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "" ]
     return monthNames[month]
+}
+
+export async function getMachinesInfo(machineNames: string): Promise<machine>
+export async function getMachinesInfo(machineNames: string[]): Promise<machine[]>
+export async function getMachinesInfo(machineNames: string[] | string) {
+    const getMachineInfo = async (machineName: string) => {
+        const dataRes = await fetch(`${RAW_REPO}/data/${machineName}/data.json`)
+        const data = await dataRes.json()
+
+        return { difficulty: data.difficulty ?? "", name: machineName, emoji: data.emoji ?? "", os: data.os ?? "", release: new Date(data.release ?? "") }
+    }
+
+    if (typeof machineNames === "object") {
+        const machines = machineNames.map(async machineName => {
+            return getMachineInfo(machineName)
+        })
+        return await Promise.all(machines)
+    } else {
+        return await getMachineInfo(machineNames)
+    }
+
 }
 
 export default function Machines() {
