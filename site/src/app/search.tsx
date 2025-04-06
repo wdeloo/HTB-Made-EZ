@@ -14,7 +14,7 @@ export default function Search() {
         (async () => {
             const machines = await getAllMachines()
 
-            const lookfor = new LookFor({ tag: "mark" }, { keySensitive: false, detectAccents: false })
+            const lookfor = new LookFor({ tag: "mark", class: "bg-[#a5f900]" }, { keySensitive: false, detectAccents: false })
             const highlightedMachines = machines.map(machine => {
                 const highlighted = lookfor.highlight(machine, query)
                 if (highlighted === machine) return null
