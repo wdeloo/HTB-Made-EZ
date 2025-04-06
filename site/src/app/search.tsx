@@ -21,8 +21,14 @@ export default function Search() {
                 return { highlighted, machine }
             }).filter(machine => machine !== null)
 
-            const machinesProm = highlightedMachines.map(async machine => { return { machine: await getMachinesInfo(machine.machine), highlighted: machine.highlighted } })
-            Promise.all(machinesProm).then(machines => setMachines(machines))
+            let machinesInfo: { machine: machine, highlighted: string }[] = []
+            for (let i = 0; i < machines.length; i += 4) {
+                const machinesProm = highlightedMachines.slice(i, i + 4).map(async machine => { return { machine: await getMachinesInfo(machine.machine), highlighted: machine.highlighted } })
+                Promise.all(machinesProm).then(machines => {
+                    machinesInfo = machinesInfo.concat(machines)
+                    setMachines(machinesInfo)
+                })
+            }
         })()
     }, [])
 

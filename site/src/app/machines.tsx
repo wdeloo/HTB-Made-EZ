@@ -8,11 +8,15 @@ export default function Machines() {
     useEffect(() => {
         (async () => {
             const machines = await getAllMachines()
-            const machinesInfo = await getMachinesInfo(machines)
 
-            setMachines(machinesInfo)
+            let machinesInfo: machine[] = []
+            for (let i = 0; i < machines.length; i += 4) {
+                const newMachinesInfo = await getMachinesInfo(machines.slice(i, i + 4))
+                machinesInfo = machinesInfo.concat(newMachinesInfo)
+                setMachines(machinesInfo)
+            }
         })()
-    })
+    }, [])
 
     return (
         <main className="py-6">
