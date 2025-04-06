@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.1",
-    "@types/capitalize": "^2.0.2",
     "capitalize": "^2.0.4",
     "lookfor-js": "^1.0.2",
+    "markdown-to-jsx": "^7.7.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.5.0",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@types/capitalize": "^2.0.2",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react-swc": "^3.8.0",
