@@ -3,7 +3,7 @@ import Machines from "../components/machines/Machines";
 export default function Home() {
     return (
         <>    
-            <main className="py-4">
+            <main className="py-6">
                 <Machines />
             </main>
     

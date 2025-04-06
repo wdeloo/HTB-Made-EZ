@@ -1,6 +1,7 @@
 import { sleepAwait } from "sleep-await";
 import LatestMachine from "./LatestMachine";
 import PinnedMachines from "./PinnedMachines";
+import AllMachinesButton from "./AllMachinesButton";
 
 export const REPO = "https://api.github.com/repos/wdeloo/HTB-Made-EZ/contents"
 export const RAW_REPO = "https://raw.githubusercontent.com/wdeloo/HTB-Made-EZ/main"
@@ -132,14 +133,29 @@ export async function getMachinesInfo(machineNames: string[] | string) {
     } else {
         return await getMachineInfo(machineNames)
     }
+}
 
+interface machinesDir {
+    name: string
+    type: "dir" | "file"
+}
+
+export async function getAllMachines() {
+    const res = await fetch(`${REPO}/data`)
+    const json: machinesDir[] = await res.json()
+
+    const machines = json.filter(machine => machine.type === "dir")
+    const machineNames = machines.map(machine => machine.name)
+
+    return machineNames
 }
 
 export default function Machines() {
     return (
-        <div className="w-5xl max-w-full px-3 m-auto flex flex-col gap-4">
+        <div className="w-5xl max-w-full px-3 m-auto flex flex-col gap-6">
             <LatestMachine />
             <PinnedMachines />
+            <AllMachinesButton />
         </div>
     )
 }

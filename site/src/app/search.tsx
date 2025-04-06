@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react"
-import { getMachinesInfo, machine, REPO } from "../components/machines/Machines"
+import { getAllMachines, getMachinesInfo, machine } from "../components/machines/Machines"
 import LookFor from 'lookfor-js'
 import { useSearchParams } from "react-router-dom"
 import Machine from "../components/machines/Machine"
-
-interface machinesDir {
-    name: string
-    type: "dir" | "file"
-}
 
 export default function Search() {
     const [machines, setMachines] = useState<{ machine: machine, highlighted: string }[]>([])
@@ -15,16 +10,6 @@ export default function Search() {
 
     useEffect(() => {
         if (!query) return
-
-        const getAllMachines = async () => {
-            const res = await fetch(`${REPO}/data`)
-            const json: machinesDir[] = await res.json()
-
-            const machines = json.filter(machine => machine.type === "dir")
-            const machineNames = machines.map(machine => machine.name)
-
-            return machineNames
-        }
 
         (async () => {
             const machines = await getAllMachines()
@@ -42,7 +27,7 @@ export default function Search() {
     }, [])
 
     return (
-        <main>
+        <main className="py-6">
             <section className="w-5xl px-3 max-w-full m-auto">
                 <ul className="grid grid-cols-4 gap-2">
                     {machines.map((machine, i) => {
@@ -53,8 +38,7 @@ export default function Search() {
                                 </article>
                             </li>
                         )
-                    })
-                    }
+                    })}
                 </ul>
             </section>
         </main>
