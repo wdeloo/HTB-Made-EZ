@@ -7,7 +7,7 @@ import Nav from './components/Nav'
 function App() {
     return (
         <>
-            <header className="sticky top-0 z-[999]">
+            <header className="z-[999] sticky top-0">
                 <Nav />
             </header>
             <Routes>

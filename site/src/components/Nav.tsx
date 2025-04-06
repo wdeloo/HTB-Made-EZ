@@ -1,3 +1,5 @@
+import SearchBar from "./search/SearchBar"
+
 interface SocialNetwork {
     name: string
     url: string
@@ -13,12 +15,15 @@ const SOCIAL_NETWORKS: SocialNetwork[] = [
 export default function Nav() {
     return (
         <nav className="flex justify-center py-3">
-            <ul className="w-5xl px-3 max-w-full flex flex-row justify-between items-center">
+            <ul className="w-5xl px-3 max-w-full flex flex-row gap-6 items-center">
                 <li className="h-full">
                     <a href={import.meta.env.BASE_URL} className="flex flex-row gap-2 items-center h-full">
                         <img src="https://www.google.com/s2/favicons?sz=64&domain=hackthebox.com" />
                         <h1 className="text-xl font-bold terminalText">HTB Made EZ</h1>
                     </a>
+                </li>
+                <li className="flex-grow">
+                    <SearchBar />
                 </li>
                 <li>
                     <ul>

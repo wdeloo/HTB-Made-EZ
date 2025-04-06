@@ -1,11 +1,9 @@
 import Machines from "../components/machines/Machines";
-import SearchBar from "../components/search/SearchBar";
 
 export default function Home() {
     return (
         <>    
-            <main className="flex flex-col py-4 gap-12">
-                <SearchBar />
+            <main className="py-4">
                 <Machines />
             </main>
     
