@@ -4,8 +4,6 @@
 
 We start the machine with an Nmap scan of all TCP ports.
 
-## Test 2
-
 ```
 nmap -sS -p- -Pn -n --min-rate 5000 10.129.136.227
 
@@ -22,8 +20,6 @@ Nmap done: 1 IP address (1 host up) scanned in 14.37 seconds
 ```
 
 It reports that the open ports are 22 (SSH) and 80 (HTTP). Let's check if these are the services running on those ports and detect the underlying technologies.
-
-### Test 3
 
 ```
 nmap -p 22,80 -sVC 10.129.136.227
