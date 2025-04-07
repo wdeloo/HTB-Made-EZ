@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { RAW_REPO } from "../components/machines/Machines"
 import Terminal, { Code } from "../components/markdown/Terminal"
 import Markdown from "markdown-to-jsx"
+import Title, { Heading, Section } from "../components/markdown/Headings"
 
 export default function MachineMD() {
     const [content, setContent] = useState("")
@@ -19,13 +20,16 @@ export default function MachineMD() {
     }, [])
 
     return (
-        <main className="py-6">
+        <main className="pt-2 pb-6">
             <section className="w-5xl max-w-full px-3 m-auto text-lg">
                 <Markdown
                     options={{
                         overrides: {
                             pre: Terminal,
                             code: Code,
+                            h1: Title,
+                            h2: Section,
+                            h3: Heading,
                         }
                     }}
                 >
