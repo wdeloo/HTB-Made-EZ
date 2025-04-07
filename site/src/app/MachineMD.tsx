@@ -20,12 +20,12 @@ export default function MachineMD() {
 
     return (
         <main className="py-6">
-            <section className="w-5xl max-w-full px-3 m-auto">
+            <section className="w-5xl max-w-full px-3 m-auto text-lg">
                 <Markdown
                     options={{
                         overrides: {
                             pre: Terminal,
-                            code: Code
+                            code: Code,
                         }
                     }}
                 >

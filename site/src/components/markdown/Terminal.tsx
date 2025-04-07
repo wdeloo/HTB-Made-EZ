@@ -6,7 +6,7 @@ interface props {
 
 export function Code({ children }: props) {
     return (
-        <code className="terminalText text-xl">
+        <code className="terminalText text-xl bg-[#202020] px-2 py-0.5 rounded shadow-xs shadow-neutral-900 mx-0.5">
             {children}
         </code>
     )
@@ -77,7 +77,7 @@ export default function Terminal({ children }: props) {
     }
 
     return (
-        <div className="bg-[#202020] rounded-lg px-4 shadow shadow-neutral-900 my-3">
+        <div className="bg-[#202020] rounded-lg px-4 shadow shadow-neutral-900 my-4">
             <div className="flex flex-row justify-between items-center pb-3 pt-4">
                 <div className="flex flex-row gap-2">
                     <button onClick={toggleMinimized} type="button">
@@ -94,7 +94,7 @@ export default function Terminal({ children }: props) {
                     <CopySVG copied={copied} />
                 </button>
             </div>
-            <pre style={{ display: minimized ? 'none' : '' }} className="overflow-x-auto pb-2">
+            <pre style={{ display: minimized ? 'none' : '' }} className="overflow-x-auto pb-2 *:px-0 *:py-0 *:shadow-none *:mx-0">
                 {children}
             </pre>
         </div>
