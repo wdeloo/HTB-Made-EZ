@@ -95,7 +95,7 @@ export default function Terminal({ children }: { children: React.ReactNode }) {
         <div className="bg-[#202020] rounded-lg px-4 shadow shadow-neutral-900 my-4">
             <div className="flex flex-row justify-between items-center pb-3 pt-4 relative">
                 <WindowManagers toggleMinimized={toggleMinimized} />
-                <span className="terminalText absolute left-1/2 translate-x-[-50%] text-white opacity-50">#!/langs/{jsxChildren.props.className ? (jsxChildren.props.className as string).replace('lang-', '') : ''}</span>
+                <span className="terminalText absolute left-1/2 translate-x-[-50%] text-white opacity-50">{jsxChildren.props.className ? `#!/langs/${(jsxChildren.props.className as string).replace('lang-', '')}` : '/home/delo'}</span>
                 <button onClick={copyContent} type="button">
                     <CopySVG copied={copied} />
                 </button>
