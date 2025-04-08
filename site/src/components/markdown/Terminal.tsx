@@ -4,6 +4,22 @@ interface props {
     children: React.ReactNode
 }
 
+export function WindowManagers({ toggleMinimized }: { toggleMinimized: () => void }) {
+    return (
+        <div className="flex flex-row gap-2">
+            <button onClick={toggleMinimized} type="button">
+                <CloseSVG />
+            </button>
+            <button onClick={toggleMinimized} type="button">
+                <MinimizeSVG />
+            </button>
+            <button onClick={toggleMinimized} type="button">
+                <FullSVG />
+            </button>
+        </div>
+    )
+}
+
 export function Code({ children }: props) {
     return (
         <code className="terminalText text-xl bg-[#202020] px-2 py-0.5 rounded shadow-xs shadow-neutral-900 mx-0.5">
@@ -79,17 +95,7 @@ export default function Terminal({ children }: props) {
     return (
         <div className="bg-[#202020] rounded-lg px-4 shadow shadow-neutral-900 my-4">
             <div className="flex flex-row justify-between items-center pb-3 pt-4">
-                <div className="flex flex-row gap-2">
-                    <button onClick={toggleMinimized} type="button">
-                        <CloseSVG />
-                    </button>
-                    <button onClick={toggleMinimized} type="button">
-                        <MinimizeSVG />
-                    </button>
-                    <button onClick={toggleMinimized} type="button">
-                        <FullSVG />
-                    </button>
-                </div>
+                <WindowManagers toggleMinimized={toggleMinimized} />
                 <button onClick={copyContent} type="button">
                     <CopySVG copied={copied} />
                 </button>

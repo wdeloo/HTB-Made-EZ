@@ -4,6 +4,7 @@ import { RAW_REPO } from "../components/machines/Machines"
 import Terminal, { Code } from "../components/markdown/Terminal"
 import Markdown from "markdown-to-jsx"
 import Title, { Heading, Section } from "../components/markdown/Headings"
+import Image from "../components/markdown/Image"
 
 export default function MachineMD() {
     const [content, setContent] = useState("")
@@ -30,6 +31,7 @@ export default function MachineMD() {
                             h1: Title,
                             h2: Section,
                             h3: Heading,
+                            img: Image,
                         }
                     }}
                 >
