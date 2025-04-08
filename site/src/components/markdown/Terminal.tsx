@@ -1,9 +1,5 @@
 import { useState } from "react"
 
-interface props {
-    children: React.ReactNode
-}
-
 export function WindowManagers({ toggleMinimized }: { toggleMinimized: () => void }) {
     return (
         <div className="flex flex-row gap-2">
@@ -20,7 +16,7 @@ export function WindowManagers({ toggleMinimized }: { toggleMinimized: () => voi
     )
 }
 
-export function Code({ children }: props) {
+export function Code({ children }: { children: React.ReactNode }) {
     return (
         <code className="terminalText text-xl bg-[#202020] px-2 py-0.5 rounded shadow-xs shadow-neutral-900 mx-0.5">
             {children}
@@ -76,9 +72,11 @@ function CopySVG({ copied }: { copied: boolean }) {
     )
 }
 
-export default function Terminal({ children }: props) {
+export default function Terminal({ children }: { children: React.ReactNode }) {
     const [minimized, setMinimized] = useState(false)
     const [copied, setCopied] = useState(false)
+
+    const jsxChildren = children as React.JSX.Element
 
     function toggleMinimized() {
         setMinimized(prev => !prev)
@@ -89,13 +87,15 @@ export default function Terminal({ children }: props) {
         setTimeout(() => setCopied(false), 3000)
 
         if (!children) return
-        await navigator.clipboard.writeText((children as React.JSX.Element).props.children)
+
+        await navigator.clipboard.writeText(jsxChildren.props.children)
     }
 
     return (
         <div className="bg-[#202020] rounded-lg px-4 shadow shadow-neutral-900 my-4">
-            <div className="flex flex-row justify-between items-center pb-3 pt-4">
+            <div className="flex flex-row justify-between items-center pb-3 pt-4 relative">
                 <WindowManagers toggleMinimized={toggleMinimized} />
+                <span className="terminalText absolute left-1/2 translate-x-[-50%] text-white opacity-50">#!/langs/{jsxChildren.props.className ? (jsxChildren.props.className as string).replace('lang-', '') : ''}</span>
                 <button onClick={copyContent} type="button">
                     <CopySVG copied={copied} />
                 </button>
