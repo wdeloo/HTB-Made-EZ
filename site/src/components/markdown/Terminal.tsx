@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import hljs from 'highlight.js';
+import 'highlight.js/styles/vs2015.css'
 
 export function WindowManagers({ toggleMinimized }: { toggleMinimized: () => void }) {
     return (
@@ -16,9 +18,9 @@ export function WindowManagers({ toggleMinimized }: { toggleMinimized: () => voi
     )
 }
 
-export function Code({ children }: { children: React.ReactNode }) {
+export function Code({ children, className }: { children: React.ReactNode, className?: string }) {
     return (
-        <code className="terminalText text-xl bg-[#202020] px-2 py-0.5 rounded shadow-xs shadow-neutral-900 mx-0.5">
+        <code className={"terminalText text-xl bg-[#202020] px-2 py-0.5 rounded shadow-xs shadow-neutral-900 mx-0.5" + className ? " " + className : ""}>
             {children}
         </code>
     )
@@ -75,8 +77,26 @@ function CopySVG({ copied }: { copied: boolean }) {
 export default function Terminal({ children }: { children: React.ReactNode }) {
     const [minimized, setMinimized] = useState(false)
     const [copied, setCopied] = useState(false)
+    const [text, setText] = useState('')
+    const [language, setLanguage] = useState('')
 
-    const jsxChildren = children as React.JSX.Element
+    const preRef = useRef<HTMLPreElement>(null)
+
+    useEffect(() => {
+        const code = preRef.current?.getElementsByTagName('code')[0]
+        if (!code) return
+
+        const text = code.innerText
+        const language = code.className.split(' ').filter(className => className.includes('lang-'))[0]?.replace('lang-', '') ?? ''
+
+        if (language) {
+            setLanguage(language)
+
+            code.innerHTML = hljs.highlight(text, { language }).value
+        }
+
+        setText(text)
+    }, [])
 
     function toggleMinimized() {
         setMinimized(prev => !prev)
@@ -86,21 +106,19 @@ export default function Terminal({ children }: { children: React.ReactNode }) {
         setCopied(true)
         setTimeout(() => setCopied(false), 3000)
 
-        if (!children) return
-
-        await navigator.clipboard.writeText(jsxChildren.props.children)
+        await navigator.clipboard.writeText(text)
     }
 
     return (
         <div className="bg-[#202020] rounded-lg px-4 shadow shadow-neutral-900 my-4">
             <div className="flex flex-row justify-between items-center pb-3 pt-4 relative">
                 <WindowManagers toggleMinimized={toggleMinimized} />
-                <span className="terminalText absolute left-1/2 translate-x-[-50%] text-white opacity-50">{jsxChildren.props.className ? `#!/langs/${(jsxChildren.props.className as string).replace('lang-', '')}` : '/home/delo'}</span>
+                <span className="terminalText absolute left-1/2 translate-x-[-50%] text-white opacity-50">{language ? `#!/langs/${language}` : '/home/delo'}</span>
                 <button onClick={copyContent} type="button">
                     <CopySVG copied={copied} />
                 </button>
             </div>
-            <pre style={{ display: minimized ? 'none' : '' }} className="overflow-x-auto pb-2 *:px-0 *:py-0 *:shadow-none *:mx-0">
+            <pre ref={preRef} style={{ display: minimized ? 'none' : '' }} className="overflow-x-auto pb-2 *:px-0 *:py-0 *:shadow-none *:mx-0">
                 {children}
             </pre>
         </div>
