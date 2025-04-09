@@ -6,6 +6,7 @@ import Markdown from "markdown-to-jsx"
 import Title, { Heading, Section } from "../components/markdown/Headings"
 import Image from "../components/markdown/Image"
 import Line from "../components/markdown/Lines"
+import Link from "../components/markdown/Links"
 
 export default function MachineMD() {
     const [content, setContent] = useState("")
@@ -34,6 +35,7 @@ export default function MachineMD() {
                             h3: Heading,
                             img: Image,
                             hr: Line,
+                            a: Link,
                         }
                     }}
                 >
