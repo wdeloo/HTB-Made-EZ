@@ -5,6 +5,7 @@ import Terminal, { Code } from "../components/markdown/Terminal"
 import Markdown from "markdown-to-jsx"
 import Title, { Heading, Section } from "../components/markdown/Headings"
 import Image from "../components/markdown/Image"
+import Line from "../components/markdown/Lines"
 
 export default function MachineMD() {
     const [content, setContent] = useState("")
@@ -28,10 +29,11 @@ export default function MachineMD() {
                         overrides: {
                             pre: Terminal,
                             code: Code,
-                            h1: Title,
+                            h1: Section,
                             h2: Section,
                             h3: Heading,
                             img: Image,
+                            hr: Line,
                         }
                     }}
                 >
