@@ -20,7 +20,7 @@ export function WindowManagers({ toggleMinimized }: { toggleMinimized: () => voi
 
 export function Code({ children, className }: { children: React.ReactNode, className?: string }) {
     return (
-        <code className={"terminalText text-xl bg-[#202020] px-2 py-0.5 rounded shadow-xs shadow-neutral-900 mx-0.5" + className ? " " + className : ""}>
+        <code className={"terminalText text-xl bg-[#202020] px-2 py-0.5 rounded shadow-xs shadow-neutral-900 mx-0.5" + (className ? (" " + className) : "")}>
             {children}
         </code>
     )

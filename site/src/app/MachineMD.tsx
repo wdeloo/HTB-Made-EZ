@@ -7,6 +7,7 @@ import Title, { Heading, Section } from "../components/markdown/Headings"
 import Image from "../components/markdown/Image"
 import Line from "../components/markdown/Lines"
 import Link from "../components/markdown/Links"
+import Paragraph from "../components/markdown/Text"
 
 export default function MachineMD() {
     const [content, setContent] = useState("")
@@ -36,6 +37,7 @@ export default function MachineMD() {
                             img: Image,
                             hr: Line,
                             a: Link,
+                            p: Paragraph,
                         }
                     }}
                 >
