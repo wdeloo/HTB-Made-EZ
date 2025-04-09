@@ -30,7 +30,7 @@ export default function MachineMD() {
                         overrides: {
                             pre: Terminal,
                             code: Code,
-                            h1: Section,
+                            h1: Title,
                             h2: Section,
                             h3: Heading,
                             img: Image,
