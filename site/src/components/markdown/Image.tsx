@@ -28,7 +28,7 @@ function Download({ src }: { src: string }) {
 
 function BackForward() {
     return (
-        <div className="flex flex-row gap-3">
+        <div className="flex flex-row gap-2">
             <Arrow width={2} rotate={90} className="stroke-[#464646] group-hover:stroke-[#101010]" size={12} />
             <Arrow width={2} rotate={-90} className="stroke-[#464646] group-hover:stroke-[#101010]" size={12} />
         </div>
@@ -58,7 +58,7 @@ export default function Image({ src, alt }: { src: string, alt: string }) {
     return (
         <div className="flex flex-row justify-center">
             <div style={{ minWidth: imgWidth + (12 * 2) }} className="mx-16 my-4 bg-white p-3 w-fit rounded-lg shadow shadow-neutral-900 flex flex-col gap-3">
-                <div className="flex flex-row items-center w-full justify-between gap-2">
+                <div className="flex flex-row items-center w-full justify-between gap-3">
                     <WindowManagers toggleMinimized={toggleMinimized} />
                     <BackForward />
                     <SearchBar />
