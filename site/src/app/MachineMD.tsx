@@ -8,9 +8,11 @@ import Image from "../components/markdown/Image"
 import Line from "../components/markdown/Lines"
 import Link from "../components/markdown/Links"
 import Paragraph from "../components/markdown/Text"
+import NotFound from "../NotFound"
 
 export default function MachineMD() {
     const [content, setContent] = useState("")
+    const [notFound, setNotFound] = useState(false)
 
     const { name } = useParams()
 
@@ -19,9 +21,13 @@ export default function MachineMD() {
             const res = await fetch(`${RAW_REPO}/en/${name}/readme.md`)
             const content = await res.text()
 
+            if (!res.ok) setNotFound(true)
+
             setContent(content)
         })()
     }, [])
+
+    if (notFound) return <NotFound />
 
     return (
         <main className="pt-2 pb-6">

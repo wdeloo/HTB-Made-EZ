@@ -7,14 +7,21 @@ export default function SearchBar() {
     const inputRef = useRef<HTMLInputElement>(null)
 
     function handleSubmit(e: React.FormEvent) {
+        e.preventDefault()
+
         const input = inputRef.current
         if (!input) return
-        if (!input.value.trim()) e.preventDefault()
+
+        const value = input.value.trim()
+        if (!value) return
+
+        window.location.href = `${import.meta.env.BASE_URL}/#/search?q=${encodeURIComponent(value)}`
+        setTimeout(() => window.location.reload(), 50)
     }
 
     return (
         <search>
-            <form onSubmit={handleSubmit} action={`${import.meta.env.BASE_URL}/search`} method="GET">
+            <form onSubmit={handleSubmit} method="GET">
                 <div className="relative">
                     <input ref={inputRef} defaultValue={params.get('q') ?? ""} name="q" type="search" className="outline-none w-full text-xl px-3.5 py-2 rounded bg-neutral-800  placeholder:text-neutral-500 terminalText" placeholder="Enter Machine Name" />
                     <button className="cursor-pointer" type="submit">
