@@ -8,15 +8,22 @@ Si mi trabajo te parece útil, considera dejar una estrella al proyecto. Gracias
 
 ---
 
+## Última Máquina
+
+|Nombre|OS|Dificultad|
+|-|-|-|
+|🔔 Alert|🐧 Linux|🟢 Fácil|
+
 ## Índice
 
-|Nombre|SO|Dificultad|
+|Nombre|OS|Dificultad|
 |-|-|-|
-|[TwoMillion](TwoMillion) 📦|Linux 🐧|Fácil 🟢|
-|[Cap](Cap) 🏴‍☠|Linux 🐧|Fácil 🟢|
-|[Editorial](Editorial) 📚|Linux 🐧|Fácil 🟢|
-|[PermX](PermX) 🔒|Linux 🐧|Fácil 🟢|
-|[Chemistry](Chemistry) 🧪|Linux 🐧|Fácil 🟢|
-|[IClean](IClean) 🧹|Linux 🐧|Media 🟠|
-|[Blurry](Blurry) 🤖|Linux 🐧|Media 🟠|
-|[Instant](Instant) 🪙|Linux 🐧|Media 🟠|
+|🔔 Alert|🐧 Linux|🟢 Fácil|
+|🤖 Blurry|🐧 Linux|🟠 Media|
+|🏴‍☠ Cap|🐧 Linux|🟢 Fácil|
+|🧪 Chemistry|🐧 Linux|🟢 Fácil|
+|📚 Editorial|🐧 Linux|🟢 Fácil|
+|🧹 IClean|🐧 Linux|🟠 Media|
+|🪙 Instant|🐧 Linux|🟠 Media|
+|🔒 PermX|🐧 Linux|🟢 Fácil|
+|📦 TwoMillion|🐧 Linux|🟢 Fácil|
