@@ -242,10 +242,6 @@ def createLangReadmes():
         template = file.read()
 
     for lang in CONTENTS:
-        if not os.path.exists(lang):
-            print(f"{TEXT_COLORS["red"]}{TEXT_STYLES["bold"]}! Directory {TEXT_STYLES["underline"]}{TEXT_COLORS['default']}{lang}{TEXT_STYLES["reset"]}{TEXT_COLORS["red"]}{TEXT_STYLES["bold"]} does not exist{TEXT_STYLES['reset']}")
-            continue
-
         link[lang] = getLangLink(lang)
 
         content = compileLangReadme(template, lang, latest, index)
@@ -269,7 +265,7 @@ if __name__ == '__main__':
 
     USAGE = f"Usage: {TEXT_COLORS['green']}{script} {TEXT_COLORS['blue']}command [parameters]{TEXT_COLORS['default']}"
 
-    if not len(argv) > 1:
+    if not len(argv) == 2:
         print(USAGE)
         sys.exit(1)
 
