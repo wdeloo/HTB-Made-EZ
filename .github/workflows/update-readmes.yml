@@ -2,7 +2,7 @@ name: update-readmes
 
 on:
   schedule:
-    - cron: "*/2 * * * *" # "0 0 * * 1"
+    - cron: "0 0 * * 1"
 
 jobs:
   build:
