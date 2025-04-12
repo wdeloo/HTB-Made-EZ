@@ -2,7 +2,7 @@ name: update-readmes
 
 on:
   schedule:
-    - cron: "0 0 * * 1"
+    - cron: "*/2 * * * *" # "0 0 * * 1"
 
 jobs:
   build:
@@ -17,6 +17,7 @@ jobs:
     - run: |
         python hme.py readmes
         git config user.name "wdeloo"
+        git config user.email "wdelo.hack@gmail.com"
         git add .
         git commit -m "[Action] Updated READMES"
         git push
