@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { RAW_REPO } from "../components/machines/Machines"
 import Terminal, { Code } from "../components/markdown/Terminal"
@@ -9,8 +9,11 @@ import Line from "../components/markdown/Lines"
 import Link from "../components/markdown/Links"
 import Paragraph from "../components/markdown/Text"
 import NotFound from "../NotFound"
+import { LanguageContext } from "../context/Languages"
 
 export default function MachineMD() {
+    const [lang] = useContext(LanguageContext)
+
     const [content, setContent] = useState("")
     const [notFound, setNotFound] = useState(false)
 
@@ -18,14 +21,14 @@ export default function MachineMD() {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`${RAW_REPO}/en/${name}/readme.md`)
+            const res = await fetch(`${RAW_REPO}/${lang}/${name}/readme.md`)
             const content = await res.text()
 
             if (!res.ok) setNotFound(true)
 
             setContent(content)
         })()
-    }, [])
+    }, [lang])
 
     if (notFound) return <NotFound />
 

@@ -52,7 +52,6 @@ export default function Languages() {
 
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {
-            console.log(e.target)
             if (!e.target || !buttonRef.current) return
             if (buttonRef.current.contains(e.target as HTMLElement)) return
 
@@ -63,6 +62,20 @@ export default function Languages() {
 
         return () => document.removeEventListener('click', handleClickOutside)
     }, [])
+
+    const localStorageLanguage = 'lang'
+
+    useEffect(() => {
+        const lang = localStorage.getItem(localStorageLanguage)
+
+        if (!Object.keys(languages).includes(lang ?? "")) localStorage.removeItem(localStorageLanguage)
+        else setLanguage(lang as keyof typeof languages)
+    }, [])
+
+    function changeLanguage(newLanguage: keyof typeof languages) {
+        setLanguage(newLanguage)
+        localStorage.setItem(localStorageLanguage, newLanguage)
+    }
 
     return (
         <div className="relative overflow-visible">
@@ -77,7 +90,7 @@ export default function Languages() {
 
                     return (
                         <li key={i}>
-                            <button onClick={() => setLanguage(key)} type="button" className="text-lg font-bold text-nowrap w-full px-2 py-1 hover:bg-neutral-800 cursor-pointer">
+                            <button onClick={() => changeLanguage(key)} type="button" className="text-lg font-bold text-nowrap w-full px-2 py-1 hover:bg-neutral-800 cursor-pointer">
                                 {languages[key].emoji} {capitalize(lang)}
                             </button>
                         </li>
