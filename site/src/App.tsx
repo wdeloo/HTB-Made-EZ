@@ -5,10 +5,11 @@ import Search from './app/search'
 import Nav from './components/Nav'
 import Machines from './app/machines'
 import MachineMD from './app/MachineMD'
+import LanguageProvider from './context/Languages'
 
 export default function App() {
     return (
-        <>
+        <LanguageProvider>
             <header className="z-[999] sticky top-0">
                 <Nav />
             </header>
@@ -18,6 +19,6 @@ export default function App() {
                 <Route path="/machines" element={<Machines />} />
                 <Route path="/:name" element={<MachineMD />} />
             </Routes>
-        </>
+        </LanguageProvider>
     )
 }

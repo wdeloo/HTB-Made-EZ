@@ -1,3 +1,4 @@
+import Languages from "./languages/Languages"
 import SearchBar from "./search/SearchBar"
 
 interface SocialNetwork {
@@ -24,6 +25,9 @@ export default function Nav() {
                 </li>
                 <li className="flex-grow">
                     <SearchBar />
+                </li>
+                <li>
+                    <Languages />
                 </li>
                 <li>
                     <ul>
