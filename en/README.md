@@ -8,15 +8,22 @@ If you find my work usefull, consider giving a star to the project. Thank you, a
 
 ---
 
+## Latest Machine
+
+|Name|OS|Difficulty|
+|-|-|-|
+|🔔 Alert|🐧 Linux|🟢 Easy|
+
 ## Index
 
 |Name|OS|Difficulty|
 |-|-|-|
-|[TwoMillion](TwoMillion) 📦|Linux 🐧|Easy 🟢|
-|[Cap](Cap) 🏴‍☠|Linux 🐧|Easy 🟢|
-|[Editorial](Editorial) 📚|Linux 🐧|Easy 🟢|
-|[PermX](PermX) 🔒|Linux 🐧|Easy 🟢|
-|[Chemistry](Chemistry) 🧪|Linux 🐧|Easy 🟢|
-|[IClean](IClean) 🧹|Linux 🐧|Medium 🟠|
-|[Blurry](Blurry) 🤖|Linux 🐧|Medium 🟠|
-|[Instant](Instant) 🪙|Linux 🐧|Medium 🟠|
+|🔔 Alert|🐧 Linux|🟢 Easy|
+|🤖 Blurry|🐧 Linux|🟠 Medium|
+|🏴‍☠ Cap|🐧 Linux|🟢 Easy|
+|🧪 Chemistry|🐧 Linux|🟢 Easy|
+|📚 Editorial|🐧 Linux|🟢 Easy|
+|🧹 IClean|🐧 Linux|🟠 Medium|
+|🪙 Instant|🐧 Linux|🟠 Medium|
+|🔒 PermX|🐧 Linux|🟢 Easy|
+|📦 TwoMillion|🐧 Linux|🟢 Easy|

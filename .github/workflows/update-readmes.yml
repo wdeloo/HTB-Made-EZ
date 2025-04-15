@@ -1,0 +1,23 @@
+name: update-readmes
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.13' 
+    - uses: actions/checkout@v4
+
+    - run: |
+        python hme.py readmes
+        git config user.name "wdeloo"
+        git config user.email "	155494520+wdeloo@users.noreply.github.com"
+        git add .
+        git commit -m "[Action] Updated READMES"
+        git push
