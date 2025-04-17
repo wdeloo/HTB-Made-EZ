@@ -42,10 +42,10 @@ export default function LatestMachine() {
                     </header>
                     <main className="flex flex-col justify-between flex-grow">
                         <div className="py-4">
-                            <h2 className="text-3xl font-bold"><span data-noglitch="1">{machine.emoji}</span> {machine.name}</h2>
+                            <h2 className="text-3xl font-bold"><span className="emoji" data-noglitch="1">{machine.emoji}</span> {machine.name}</h2>
                             <ul className="my-3 flex flex-row gap-4 text-xl font-bold">
-                                <li><span data-noglitch="1">{getDifficultyEmoji(machine.difficulty)}</span> {languages[lang].difficulty[machine.difficulty as keyof typeof languages.en.difficulty]}</li>
-                                <li><span data-noglitch="1">{getOsEmoji(machine.os)}</span> {capitalize(machine.os)}</li>
+                                <li><span className="emoji" data-noglitch="1">{getDifficultyEmoji(machine.difficulty)}</span> {languages[lang].difficulty[machine.difficulty as keyof typeof languages.en.difficulty]}</li>
+                                <li><span className="emoji" data-noglitch="1">{getOsEmoji(machine.os)}</span> {capitalize(machine.os)}</li>
                             </ul>
                         </div>
                         <time className="text-xl font-bold opacity-60" dateTime={`${machine.release.getFullYear()}-${machine.release.getMonth()}-${machine.release.getDate()}`}>{machine.release.getDate()} {languages[lang as keyof typeof languages].getMonthName(machine.release.getMonth() ?? 12)} {machine.release.getFullYear()}</time>

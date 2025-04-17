@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=VT323&display=swap');
 @import "tailwindcss";
 
 body {
@@ -12,6 +12,12 @@ nav {
 
 .terminalText {
   font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.emoji {
+  font-family: "Noto Color Emoji", sans-serif;
   font-weight: 400;
   font-style: normal;
 }

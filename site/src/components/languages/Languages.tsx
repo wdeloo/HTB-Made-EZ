@@ -80,7 +80,7 @@ export default function Languages() {
     return (
         <div className="relative overflow-visible">
             <button ref={buttonRef} onClick={() => setMenu(prev => !prev)} className="text-2xl flex flex-row items-center gap-1.5 -mr-2 -ml-1 cursor-pointer p-1" type="button">
-                {languages[language].emoji}
+                <span className="emoji">{languages[language].emoji}</span>
                 <Arrow menu={menu} />
             </button>
 
@@ -91,7 +91,7 @@ export default function Languages() {
                     return (
                         <li key={i}>
                             <button onClick={() => changeLanguage(key)} type="button" className="text-lg font-bold text-nowrap w-full px-2 py-1 hover:bg-neutral-800 cursor-pointer">
-                                {languages[key].emoji} {capitalize(lang)}
+                                <span className="emoji">{languages[key].emoji}</span> {capitalize(lang)}
                             </button>
                         </li>
                     )
