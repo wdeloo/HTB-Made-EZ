@@ -25,7 +25,7 @@ export default function PinnedMachines() {
 
     return (
         <section aria-label="Pinned Machines">
-            <ul className="flex flex-row w-full gap-2">
+            <ul className="grid md:grid-cols-4 grid-cols-2 w-full gap-2">
                 {machines.map((machine, i) => {
                     return (
                         <li key={i} className="flex-1">

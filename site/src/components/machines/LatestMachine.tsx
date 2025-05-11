@@ -34,21 +34,21 @@ export default function LatestMachine() {
 
     return (
         <article>
-            <Link to={`/${machine.name ?? ""}`} onMouseEnter={e => textGlitch(e.currentTarget)} className="flex flex-row gap-8 items-stretch terminalText hover:bg-neutral-800">
-                <img width={300} src={`${RAW_REPO}/img/${machine.name}/${machine.name}.png`} />
-                <div className="flex flex-col py-3">
+            <Link to={`/${machine.name ?? ""}`} onMouseEnter={e => textGlitch(e.currentTarget)} className="flex md:flex-row flex-col gap-8 md:items-stretch items-center terminalText hover:bg-neutral-800">
+                <img width={300} className="md:w-[300px] w-full" src={`${RAW_REPO}/img/${machine.name}/${machine.name}.png`} />
+                <div className="flex flex-col md:items-start items-center py-3">
                     <header>
-                        <h1 className="text-5xl"><b>{languages[lang].latest}</b></h1>
+                        <h1 className="text-5xl md:text-left text-center"><b>{languages[lang].latest}</b></h1>
                     </header>
                     <main className="flex flex-col justify-between flex-grow">
                         <div className="py-4">
-                            <h2 className="text-3xl font-bold"><span className="emoji" data-noglitch="1">{machine.emoji}</span> {machine.name}</h2>
+                            <h2 className="text-3xl font-bold md:text-left text-center"><span className="emoji" data-noglitch="1">{machine.emoji}</span> {machine.name}</h2>
                             <ul className="my-3 flex flex-row gap-4 text-xl font-bold">
                                 <li><span className="emoji" data-noglitch="1">{getDifficultyEmoji(machine.difficulty)}</span> {languages[lang].difficulty[machine.difficulty as keyof typeof languages.en.difficulty]}</li>
                                 <li><span className="emoji" data-noglitch="1">{getOsEmoji(machine.os)}</span> {capitalize(machine.os)}</li>
                             </ul>
                         </div>
-                        <time className="text-xl font-bold opacity-60" dateTime={`${machine.release.getFullYear()}-${machine.release.getMonth()}-${machine.release.getDate()}`}>{machine.release.getDate()} {languages[lang as keyof typeof languages].getMonthName(machine.release.getMonth() ?? 12)} {machine.release.getFullYear()}</time>
+                        <time className="text-xl font-bold opacity-60 text-center md:text-left" dateTime={`${machine.release.getFullYear()}-${machine.release.getMonth()}-${machine.release.getDate()}`}>{machine.release.getDate()} {languages[lang as keyof typeof languages].getMonthName(machine.release.getMonth() ?? 12)} {machine.release.getFullYear()}</time>
                     </main>
                 </div>
             </Link>

@@ -110,15 +110,15 @@ export default function Terminal({ children }: { children: React.ReactNode }) {
     }
 
     return (
-        <div className="bg-[#202020] rounded-lg px-4 shadow shadow-neutral-900 my-4">
-            <div className="flex flex-row justify-between items-center pb-3 pt-4 relative">
+        <div className="bg-[#202020] rounded-lg sm:p-3 p-2 shadow shadow-neutral-900 my-4">
+            <div className="flex flex-row justify-between items-center relative">
                 <WindowManagers toggleMinimized={toggleMinimized} />
                 <span className="terminalText absolute left-1/2 translate-x-[-50%] text-white opacity-50">{language ? `#!/langs/${language}` : '/home/delo'}</span>
                 <button onClick={copyContent} type="button">
                     <CopySVG copied={copied} />
                 </button>
             </div>
-            <pre ref={preRef} style={{ display: minimized ? 'none' : '' }} className="overflow-x-auto pb-2 *:px-0 *:py-0 *:shadow-none *:mx-0">
+            <pre ref={preRef} style={{ display: minimized ? 'none' : '' }} className="overflow-x-auto sm:pt-3 pt-2 -mb-1 *:px-0 *:py-0 *:shadow-none *:mx-0">
                 {children}
             </pre>
         </div>

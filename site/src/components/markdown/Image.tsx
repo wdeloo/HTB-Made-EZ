@@ -46,7 +46,6 @@ function SearchBar() {
 }
 
 export default function Image({ src, alt }: { src: string, alt: string }) {
-    const [imgWidth, setImgWidth] = useState(0)
     const [minimized, setMinimized] = useState(false)
 
     function toggleMinimized() {
@@ -56,8 +55,8 @@ export default function Image({ src, alt }: { src: string, alt: string }) {
     const imgSrc = src.replace("../..", RAW_REPO)
 
     return (
-        <div className="flex flex-row justify-center">
-            <div style={{ minWidth: imgWidth + (12 * 2) }} className="mx-16 my-4 bg-white p-3 w-fit rounded-lg shadow shadow-neutral-900 flex flex-col gap-3">
+        <div className="flex flex-row justify-center max-w-full my-4">
+            <div className="bg-white sm:p-3 p-2 w-full rounded-lg shadow shadow-neutral-900 flex flex-col sm:gap-3 gap-2">
                 <div className="flex flex-row items-center w-full justify-between gap-3">
                     <WindowManagers toggleMinimized={toggleMinimized} />
                     <BackForward />
@@ -65,7 +64,7 @@ export default function Image({ src, alt }: { src: string, alt: string }) {
                     <Download src={imgSrc} />
                 </div>
 
-                <img onLoad={e => setImgWidth(e.currentTarget.width)} style={{ display: minimized ? 'none' : '' }} className="rounded-lg" src={imgSrc} alt={alt} />
+                <img style={{ display: minimized ? 'none' : '' }} className="rounded-lg w-full" src={imgSrc} alt={alt} />
             </div>
         </div>
     )

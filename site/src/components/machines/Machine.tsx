@@ -14,7 +14,7 @@ export default function Machine({ machine, HTMLName }: props) {
     const [lang] = useContext(LanguageContext)
 
     return (
-        <Link to={`/${machine.name}`} onMouseEnter={e => textGlitch(e.currentTarget)} className="flex flex-col terminalText hover:bg-neutral-800">
+        <Link to={`/${machine.name}`} onMouseEnter={e => textGlitch(e.currentTarget)} className="flex flex-col terminalText hover:bg-neutral-800 text-nowrap">
             <img src={`${RAW_REPO}/img/${machine.name}/${machine.name}.png`} />
             <div className="px-1 py-4 flex flex-col w-full items-center">
                 <h2 className="text-2xl font-bold"><span className="emoji" data-noglitch="1">{machine.emoji}</span> {!HTMLName ? machine.name : <span dangerouslySetInnerHTML={{ __html: HTMLName }} />}</h2>
