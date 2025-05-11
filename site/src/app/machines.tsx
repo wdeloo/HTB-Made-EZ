@@ -21,7 +21,7 @@ export default function Machines() {
     return (
         <main className="py-6">
             <section className="w-5xl px-3 max-w-full m-auto">
-                <ul className="grid grid-cols-4 gap-2">
+                <ul className="grid md:grid-cols-4 grid-cols-2 gap-2">
                     {machines.map((machine, i) => {
                         return (
                             <li key={i}>
