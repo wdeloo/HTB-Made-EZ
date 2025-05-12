@@ -25,5 +25,6 @@ If you find my work usefull, consider giving a star to the project. Thank you, a
 |📚 Editorial|🐧 Linux|🟢 Easy|
 |🧹 IClean|🐧 Linux|🟠 Medium|
 |🪙 Instant|🐧 Linux|🟠 Medium|
+|⛓ LinkVortex|🐧 Linux|🟢 Easy|
 |🔒 PermX|🐧 Linux|🟢 Easy|
 |📦 TwoMillion|🐧 Linux|🟢 Easy|
