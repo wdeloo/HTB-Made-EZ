@@ -1,9 +1,9 @@
 {
-    "latest": "Alert",
+    "latest": "Titanic",
     "pinned": [
+        "Alert",
         "Chemistry",
-        "Instant",
-        "PermX",
-        "TwoMillion"
+        "Cat",
+        "LinkVortex"
     ]
 }
