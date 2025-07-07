@@ -12,7 +12,7 @@ Si mi trabajo te parece útil, considera dejar una estrella al proyecto. Gracias
 
 |Nombre|OS|Dificultad|
 |-|-|-|
-|🔔 Alert|🐧 Linux|🟢 Fácil|
+|🚢 Titanic|🐧 Linux|🟢 Fácil|
 
 ## Índice
 
@@ -21,10 +21,12 @@ Si mi trabajo te parece útil, considera dejar una estrella al proyecto. Gracias
 |🔔 Alert|🐧 Linux|🟢 Fácil|
 |🤖 Blurry|🐧 Linux|🟠 Media|
 |🏴‍☠ Cap|🐧 Linux|🟢 Fácil|
+|😺 Cat|🐧 Linux|🟠 Media|
 |🧪 Chemistry|🐧 Linux|🟢 Fácil|
 |📚 Editorial|🐧 Linux|🟢 Fácil|
 |🧹 IClean|🐧 Linux|🟠 Media|
 |🪙 Instant|🐧 Linux|🟠 Media|
 |⛓ LinkVortex|🐧 Linux|🟢 Fácil|
 |🔒 PermX|🐧 Linux|🟢 Fácil|
+|🚢 Titanic|🐧 Linux|🟢 Fácil|
 |📦 TwoMillion|🐧 Linux|🟢 Fácil|
